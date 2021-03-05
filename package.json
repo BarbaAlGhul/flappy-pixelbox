@@ -1,6 +1,6 @@
 {
 	"name": "flappixelbox",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "made with Pixelbox.js",
 	"dependencies": {
 		"pixelbox": "2.0.2",
