@@ -3,9 +3,14 @@ import scenes from '../../manageScenes'
 let title = {
     start: function() {
         paper(15).cls()
-        locate(5, 7).pen(1).print('FLAPPY PIXELBOX')
-        locate(6, 9).pen(0).print('press Z or X')
-        locate(8, 10).print('to start')
+        $screen.setCharset(assets.amstrad)
+        pen(0).print('FLAPPY', 25, 33) // shadow effect
+        locate(3, 4).pen(1).print('FLAPPY')
+        pen(0).print('PIXELBOX', 17, 49) // shadow effect
+        locate(2, 6).pen(1).print('PIXELBOX')
+        $screen.setCharset()
+        locate(6, 13).pen(0).print('press Z or X')
+        locate(8, 14).print('to start')
     },
     update: function() {
         if (btnp.A || btnp.B) {
