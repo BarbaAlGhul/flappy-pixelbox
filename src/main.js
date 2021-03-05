@@ -25,6 +25,7 @@ let obstacleSpeed = 5
 let obstacleGapY = 0
 let obstacleX = 0
 
+// score variables. Scored here is used to update the score just one time after the condition is met (try to remove it and see what happens to your score)
 let score = 0
 let scored = false
 
@@ -103,7 +104,7 @@ function drawObstacle(tilemap) {
 }
 
 function resetObstacle() {
-    // clear the tilemap of the obstacle and resets the variables related to its movement and gap position
+    // clear the tilemap of the obstacle and resets the variables related to its movement and gap position and reset the scored variable
     tilemap.clear()
     obstacleX = $screen.width
     obstacleGapY = random(tilemap.width, tilemap.height - obstacleSpaceHeight - 1)
@@ -111,6 +112,7 @@ function resetObstacle() {
 }
 
 function resetPlayer() {
+    // resets all variables related to the player, including the score since this is the function that resets the game
     delta = 0
     previous = Date.now()
     charX = 35
@@ -120,6 +122,7 @@ function resetPlayer() {
 }
 
 function handleScore() {
+    // computes the score according to the player position. Scored is used so the score doesn't increase every frame
     if (charX + tilesize > obstacleX + tilesize && !scored) {
         score++
         scored = true
@@ -127,17 +130,23 @@ function handleScore() {
 }
 
 function handleGameOver() {
+    // check the two possibilities of game over: collision with the obstacle or the character Y position being higher or lower than the screen size
     if (checkCollision()) {
         isRunning = false
     }
 
-    if (charY > $screen.height) {
+    if (charY > $screen.height || charY + tilesize + 1 < 0) {
         isRunning = false
     }
     
 }
 
 function checkCollision() {
+    // this function checks for collision on all the sides of the obstacle
+    // The first check verifies if the left edge of character is to the left of the right edge of obstacle
+    // The second check verifies if the right edge of the character is to the left edge of the obstacle
+    // The third check verifies if the top edge of the character is above the bottom edge of the upper segment
+    // The last check verifies if the bottom edge of the character is bellow the top edge of the lower segment
     return charX < obstacleX + tilesize
         && charX + tilesize - 1 > obstacleX 
         && (
