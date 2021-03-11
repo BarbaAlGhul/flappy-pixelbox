@@ -22,6 +22,9 @@ let player = {
                 if (this.speed < -4) this.speed = -4
             }
         }
+    },
+    update: function() {
+        this.handleKeyPress()
     }
 }
 
