@@ -1,7 +1,9 @@
 import title from './scenes/title/title'
+import game from './scenes/game/game'
+import gameover from './scenes/gameover/gameover'
 
 export default {
-    scenes: { title },
+    scenes: { title, game, gameover },
     update: null,
     activeScene: null,
     start: function(sceneName) {
