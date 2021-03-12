@@ -18,6 +18,7 @@ let player = {
         if (this.y > 0) {
             if (btnp.A || btnp.B) {
                 this.speed = -16
+                assets.bleeper.jump.play();
             }
             if (btnr.A || btnr.B) {
                 if (this.speed < -4) this.speed = -4
