@@ -10,6 +10,6 @@ export default {
         let scene = this.scenes[sceneName]
         this.activeScene = scene
         this.update = scene.update
-        scene.start && scene.start()
+        scene.start()
     }
 }
