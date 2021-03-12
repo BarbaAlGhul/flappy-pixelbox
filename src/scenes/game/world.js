@@ -43,7 +43,7 @@ export default {
     },
     handleScore: function(pipe) {
         // computes the score according to the player position. Scored is used so the score doesn't increase every frame
-        if (this.player.x + constants.TILESIZE > pipe.x + constants.TILESIZE && !this.scored) {
+        if (this.player.x > pipe.x + constants.TILESIZE && !this.scored) {
             this.score++
             this.scored = true
         }
