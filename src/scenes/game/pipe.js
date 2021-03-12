@@ -10,9 +10,10 @@ export default class Pipe {
         this.tilemap = new TileMap(1, 16)
     }
 
-    reset() {
+    reset(xPos) {
+        // pipe reset takes an x argument so we can reset it's initial x position to any position
         this.tilemap.clear()
-        this.x = $screen.width
+        this.x = xPos
         this.gapY = random(this.tilemap.width, this.tilemap.height - this.gapHeight - 1)
     }
 
@@ -30,7 +31,7 @@ export default class Pipe {
         }
     }
 
-    drawPipe() {
+    render() {
         // this function first set the tilemap and then draw it on the screen
         this.setPipe()
         this.tilemap.draw(this.x, this.y)

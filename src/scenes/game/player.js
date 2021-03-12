@@ -4,6 +4,7 @@ let player = {
     x: null,
     y: null,
     speed: null,
+    sprite: 156,
     reset: function() {
         this.x = 35
         this.y = constants.TILESIZE
@@ -25,6 +26,10 @@ let player = {
     },
     update: function() {
         this.handleKeyPress()
+    },
+    render: function() {
+        // draw the character on the screen
+        sprite(this.sprite, this.x, this.y)
     }
 }
 
