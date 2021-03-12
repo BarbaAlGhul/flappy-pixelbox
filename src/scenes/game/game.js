@@ -1,18 +1,25 @@
-import player from '../game/player'
 import world from '../game/world'
 
-let game = {
-    player: null,
-    world: null,
-    start: function() {
-        this.player = player
-        this.world = world
-        this.player.reset()
-        this.world.setUp()
-    },
+export default {
+    world: world,
+    delta: null,
+    previousDelta: null,
     update: function() {
-        this.world.update()
+        this.calculateDelta()
+        this.world.update(this.delta)
+        cls()
+        this.world.render()
+    },
+    // reset: function() {
+    //     this.delta = 0
+    //     this.previousDelta = Date.now()
+    // },
+    calculateDelta: function() {
+        // delta function inspired by https://github.com/NoohAlavi/pixelbox.js-helper
+        // used so it's possible to update variables based on the time that the game is running
+        let now = Date.now()
+        this.delta = (now - this.previousDelta) / 90
+        this.previousDelta = Date.now()
+        
     }
 }
-
-export default game
