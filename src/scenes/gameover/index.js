@@ -17,12 +17,11 @@ function update() {
     gameOverTile.draw(constants.TILESIZE, constants.TILESIZE * 4)
     pen(0).print("GAME OVER", 4 * constants.TILESIZE - 1, 5 * constants.TILESIZE)
     print("PRESS R TO RESTART", 2 * constants.TILESIZE - 3, 6 * constants.TILESIZE)
-    print("THE GAME", 4 * constants.TILESIZE - 1, 7 * constants.TILESIZE)
-    print("PRESS Z OR X", 3 * constants.TILESIZE, 8 * constants.TILESIZE)
-    print("TO TITLE SCREEN", 2 * constants.TILESIZE + 2, 9 * constants.TILESIZE)
+    print("PRESS T TO", 3 * constants.TILESIZE + 5, 8 * constants.TILESIZE)
+    print("TITLE SCREEN", 3 * constants.TILESIZE + 1, 9 * constants.TILESIZE)
     if (btnp.C) {
         scenes.start('game')
-    } else if (btnp.A || btnp.B) {
+    } else if (btnp.D) {
         scenes.start('title')
     }
 }
