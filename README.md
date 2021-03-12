@@ -7,6 +7,11 @@ For the simplest version of the game (simple code, easier for beginners) go to t
 
 <br>
 
+You can play this demo on [itch.io](barbaalghul.itch.io/flappypixelbox)
+
+<br>
+
 ## Commands
  - Z or X : jump (hold the button to jump higher)
  - R : restart the game on the game over screen
+ - T : go to the title screen on the game over screen
